@@ -1,39 +1,51 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## flutter 手势密码插件
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+### 简介
+  可以定制化的手势密码组件
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+### 引入  
+```
+ad_cache:
+    git:
+      url: https://github.com/StanleyCocos/ad_plugins.git
+      path: package/ad_cache/
 ```
 
-## Additional information
+### 使用
+```
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("test"),
+      ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        padding: const EdgeInsets.all(50),
+        color: Colors.black12,
+        child: GesturePasswordWidget(
+          // 修改默认圆圈颜色
+          color: Colors.lightBlueAccent,
+          // 修改选择圆圈颜色
+          highlightColor: Colors.red,
+          // 修改连线画笔颜色
+          pathColor: Colors.red,
+          // 圆圈半径
+          frameRadius: 30,
+          // 圆圈中心点半径
+          pointRadius: 4,
+          // 连线画笔宽度
+          pathWidth: 4,
+          // 结果
+          onFinishGesture: (result) {
+            print(result);
+          },
+        ),
+      ), // body: Container(
+    );
+  }
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+
