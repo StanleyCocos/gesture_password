@@ -6,10 +6,9 @@
 
 ### 引入  
 ```
-ad_cache:
+gesture_password:
     git:
-      url: https://github.com/StanleyCocos/ad_plugins.git
-      path: package/ad_cache/
+      url: https://github.com/StanleyCocos/gesture_password.git
 ```
 
 ### 使用
