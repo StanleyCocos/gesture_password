@@ -1,10 +1,10 @@
 name: gesture_password
 description: A new Flutter project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/StanleyCocos
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
