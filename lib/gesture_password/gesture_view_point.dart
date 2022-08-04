@@ -16,6 +16,7 @@ class GestureDotsPanelWidget extends StatelessWidget {
           const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemCount: points.length,
       physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
       itemBuilder: (context, index) {
         return GestureViewPoint(
           data: points[index],
@@ -32,11 +33,9 @@ class GestureViewPoint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print("data.selected ${data.selected}");
     return Container(
       width: double.infinity,
       height: double.infinity,
-      // color: random,
       alignment: Alignment.center,
       child: Stack(
         children: [
@@ -80,7 +79,6 @@ class LinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // print(radius);
     //绘制圆 参数为中心点 半径 画笔
     _paint.style = style;
     _paint.color = color;
