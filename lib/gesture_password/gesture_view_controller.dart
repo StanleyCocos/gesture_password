@@ -12,6 +12,7 @@ class GestureViewController {
   Color _highlightColor = Colors.blue;
   Color _pathColor = Colors.blue;
   Function(List<int>)? _onFinishGesture;
+  List<int> _gestureIndex = [];
   double _pathWidth = 5;
   Function()? _updateView;
   Offset? _firstPoint;
@@ -106,6 +107,7 @@ extension Tap on GestureViewController {
         _firstPoint = e.localPosition;
         _pathPoint.add(item.centerPoint);
         _updateView?.call();
+        _gestureIndex.add(item.index);
         break;
       }
     }
@@ -119,6 +121,7 @@ extension Tap on GestureViewController {
         if (!item.selected) {
           item.selected = true;
           _pathPoint.add(item.centerPoint);
+          _gestureIndex.add(item.index);
         }
         break;
       }
@@ -129,15 +132,9 @@ extension Tap on GestureViewController {
   void onPanEnd(DragEndDetails e) {
     _firstPoint = null;
     _movePoint = null;
-
-    List<int> result = [];
-    _points.forEach((element) {
-      if(element.selected) result.add(element.index);
-    });
-    _onFinishGesture?.call(result);
-    _points.forEach((element) {
-      element.selected = false;
-    });
+    _onFinishGesture?.call(_gestureIndex);
+    _points.forEach((e) =>  e.selected = false);
+    _gestureIndex.clear();
     _pathPoint.clear();
     _updateView?.call();
   }

@@ -4,7 +4,6 @@ import 'gesture_view_path.dart';
 import 'gesture_view_point.dart';
 
 class GesturePasswordWidget extends StatefulWidget {
-
   /// 圆圈半径
   final double frameRadius;
 
@@ -47,19 +46,18 @@ class _GesturePasswordState extends State<GesturePasswordWidget> {
   @override
   void initState() {
     controller.initParameters(
-      pointRadius: widget.pointRadius,
-      frameRadius: widget.frameRadius,
-      color: widget.color,
-      highlightColor: widget.highlightColor,
-      pathColor: widget.pathColor,
-      onFinishGesture: widget.onFinishGesture,
-      pathWidth: widget.pathWidth,
-      updateView: (){
-        setState(() {});
-      }
-    );
+        pointRadius: widget.pointRadius,
+        frameRadius: widget.frameRadius,
+        color: widget.color,
+        highlightColor: widget.highlightColor,
+        pathColor: widget.pathColor,
+        onFinishGesture: widget.onFinishGesture,
+        pathWidth: widget.pathWidth,
+        updateView: () {
+          setState(() {});
+        });
     WidgetsBinding.instance
-        ?.addPostFrameCallback((_) => controller.setPointValues());
+        .addPostFrameCallback((_) => controller.setPointValues());
     super.initState();
   }
 
@@ -68,17 +66,22 @@ class _GesturePasswordState extends State<GesturePasswordWidget> {
     return SizedBox(
       key: controller.globalKey,
       width: double.infinity,
-      height: double.infinity,
       child: Stack(
         children: [
-          GestureDotsPanelWidget(points: controller.point),
-          GestureViewPathWidget(
-            points: controller.pathPoint,
-            pathWidth: controller.pathWidth,
-            color: controller.pathColor,
-            onPanDown: controller.onPanDown,
-            onPanEnd: controller.onPanEnd,
-            onPanUpdate: controller.onPanUpdate,
+          AspectRatio(
+            aspectRatio: 1.0,
+            child: GestureDotsPanelWidget(points: controller.point),
+          ),
+          AspectRatio(
+            aspectRatio: 1.0,
+            child: GestureViewPathWidget(
+              points: controller.pathPoint,
+              pathWidth: controller.pathWidth,
+              color: controller.pathColor,
+              onPanDown: controller.onPanDown,
+              onPanEnd: controller.onPanEnd,
+              onPanUpdate: controller.onPanUpdate,
+            ),
           ),
         ],
       ),
