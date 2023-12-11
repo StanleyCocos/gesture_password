@@ -3,14 +3,6 @@
 ### 简介
   可以定制化的手势密码组件
 
-
-### 引入  
-```
-gesture_password:
-    git:
-      url: https://github.com/StanleyCocos/gesture_password.git
-```
-
 ### 使用
 ```
   @override

@@ -12,7 +12,7 @@ class GestureViewController {
   Color _highlightColor = Colors.blue;
   Color _pathColor = Colors.blue;
   Function(List<int>)? _onFinishGesture;
-  List<int> _gestureIndex = [];
+  final List<int> _gestureIndex = [];
   double _pathWidth = 5;
   Function()? _updateView;
   Offset? _firstPoint;
@@ -80,9 +80,6 @@ extension Public on GestureViewController {
   void setPointValues() {
     try {
       Size size = globalKey.currentContext?.size ?? Size.zero;
-      // RenderBox render =
-      //     globalKey.currentContext?.findRenderObject() as RenderBox;
-      // Offset offset = render.localToGlobal(Offset.zero);
       double pointWidth = _getPointWidth(size.width);
       List<Offset> pointCenter = [];
       for (int x = 1; x <= 3; x++) {
@@ -95,7 +92,9 @@ extension Public on GestureViewController {
       for (int index = 0; index < pointCenter.length; index++) {
         _points[index].centerPoint = pointCenter[index];
       }
-    } catch (e) {}
+    } catch (e) {
+      // print('error: $e');
+    }
   }
 }
 
@@ -133,7 +132,9 @@ extension Tap on GestureViewController {
     _firstPoint = null;
     _movePoint = null;
     _onFinishGesture?.call(_gestureIndex);
-    _points.forEach((e) =>  e.selected = false);
+    for (var e in _points) {
+      e.selected = false;
+    }
     _gestureIndex.clear();
     _pathPoint.clear();
     _updateView?.call();

@@ -45,13 +45,11 @@ class GestureViewPathWidget extends StatelessWidget {
   }
 }
 
-// 绘制手势路径
 class _PathPainter extends CustomPainter {
   final List<Offset> points;
   final Color color;
   final double pathWidth;
 
-  // 路径画笔
   final pathPainter = Paint()
     ..style = PaintingStyle.stroke
     ..strokeCap = StrokeCap.round;

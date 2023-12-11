@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gesture_password/gesture_password.dart';
+import 'package:flutter_gesture_pwd/gesture_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               // height: 400,
-              margin: EdgeInsets.all(32),
+              margin:  const EdgeInsets.all(32),
               color: Colors.black,
               child: GesturePasswordWidget(
                 // 修改默认圆圈颜色
@@ -80,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 pathWidth: 4,
                 // 结果
                 onFinishGesture: (result) {
-                  print(result);
+                  // 开启后需要重启
+                  // print(result);
                 },
               ),
             ),

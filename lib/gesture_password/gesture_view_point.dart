@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'gesture_view.dart';
 import 'gesture_view_model.dart';
 
 class GestureDotsPanelWidget extends StatelessWidget {
@@ -74,12 +73,10 @@ class LinePainter extends CustomPainter {
     ..color = Colors.grey
     ..strokeCap = StrokeCap.square
     ..isAntiAlias = true
-    ..strokeWidth =
-        3.0; //画笔样式有填充PaintingStyle.fill 及没有填充PaintingStyle.stroke 两种
+    ..strokeWidth = 3.0;
 
   @override
   void paint(Canvas canvas, Size size) {
-    //绘制圆 参数为中心点 半径 画笔
     _paint.style = style;
     _paint.color = color;
     canvas.drawCircle(Offset.zero, radius, _paint);
@@ -92,4 +89,8 @@ class LinePainter extends CustomPainter {
 }
 
 Color get random => Color.fromRGBO(
-    Random().nextInt(256), Random().nextInt(256), Random().nextInt(256), 1);
+      Random().nextInt(256),
+      Random().nextInt(256),
+      Random().nextInt(256),
+      1,
+    );
