@@ -17,5 +17,4 @@ pathColor | 修改连线画笔颜色
 frameRadius  | 圆圈中心点半径
 pointRadius  | 圆圈半径
 pathWidth  | 连线画笔宽度
-
 onFinishGesture  | 结束绘制返回结果(数组下标)
