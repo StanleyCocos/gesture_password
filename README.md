@@ -1,5 +1,5 @@
 ## flutter 手势密码插件
-
+[![插件地址](https://img.shields.io/badge/v1.0.0-bule?label=pub "图片说明")](https://pub.dev/packages/flutter_gesture_pwd)
 ### 简介
   可以定制化的手势密码组件
 
