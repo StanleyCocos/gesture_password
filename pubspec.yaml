@@ -1,6 +1,6 @@
 name: flutter_gesture_pwd
 description: flutter - 手势密码插件
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/StanleyCocos/gesture_password.git
 
 environment:
